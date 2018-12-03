@@ -1,0 +1,9 @@
+Options -MultiViews
+RewriteEngine On
+
+# redirect "/comprobarusuario.php" to "/section/xxx"
+RewriteCond %{THE_REQUEST} \s/comprobarusuario\.php\?id=([0-9]+)\s [NC]
+RewriteRule ^ /comprobarusuario/%1? [R=301,L]
+
+# internally rewrite "" to "/comprobarusuario.php"
+RewriteRule ^/([0-9]+)$ /comprobarusuario.php?id=$1 [L]
